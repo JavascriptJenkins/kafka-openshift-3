@@ -1,6 +1,16 @@
-###### 7676 is username - 888 is groupname 
+RUN yum -y update && \
 
-FROM centos:centos7
-RUN groupadd -g 999 888
-RUN useradd -u 999  -g 1234 -home /app 7676
-USER 7676
+yum -y install httpd && \
+
+yum clean all
+
+COPY data/httpd.conf /etc/httpd/conf/httpd.conf
+
+ADD data/html.tar.gz /var/www/html/
+
+EXPOSE 80
+
+ENV HOME /root
+
+WORKDIR /root
+
