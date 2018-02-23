@@ -1,4 +1,3 @@
-#!/bin/sh
 
 cat <<EOF
 This is a STI springboot maven3 centos base image:
